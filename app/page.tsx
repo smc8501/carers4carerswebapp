@@ -1,10 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="container">
-      <div className="text">Report Generation Web Application</div>
-    </div>
-  );
+  return <Link href="/create-new-report">Create New Report</Link>
 }
