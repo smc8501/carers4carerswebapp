@@ -1,6 +1,11 @@
 "use client";
-import Link from "next/link";
+import ReportViz from "@/components/ReportViz";
 
-export default function Home() {
-  return <Link href="/create-new-report">Create New Report</Link>
+export default function Page(){
+    return (
+        <div className="Viz">
+            <h1>Report Viz</h1>
+            <ReportViz/>
+        </div>
+    );
 }

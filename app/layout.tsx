@@ -14,6 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
     <html lang="en">
+      <head>
+        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+
+      </head>
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
