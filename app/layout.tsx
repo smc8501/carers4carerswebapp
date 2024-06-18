@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description: "For Generating Reports more Efficiently.",
 };
 
-export default function RootLayout(props: React.PropsWithChildren) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-          {props.children}
+          {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
