@@ -3,8 +3,9 @@
 import { ThemeProvider } from "@emotion/react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { theme } from "../theme";
+import React from "react";
 
-export default function EnterRegistrationFormLayout(props: React.PropsWithChildren) {
+export default function EnterRegistrationFormLayout({children}: {children: React.ReactNode}) {
     return (
       <html lang="en">
         <head>
@@ -16,7 +17,7 @@ export default function EnterRegistrationFormLayout(props: React.PropsWithChildr
         <body>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
-            {props.children}
+            {children}
             </ThemeProvider>
           </AppRouterCacheProvider>
         </body>
