@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 import { Box, Button, Container, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
+import EnterRegistrationForm from "@/components/EnterRegistrationForm";
+
 
 export default function Page() {
   const [open, setOppen] = useState(false);
@@ -15,7 +17,7 @@ export default function Page() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {[
-          {text: 'Registration', path: ''},
+          {text: 'Registration', path: '/EnterRegistrationFormManually'},
           {text: 'Attendance', path: '/EnterAttendanceSheetManually'},
           {text: 'Reports', path: ''}].map((item) => (
           <ListItem key={item.text} disablePadding>
@@ -30,6 +32,7 @@ export default function Page() {
     </Box>
   );
   return (
+
     <>
       <Container>
         <Button onClick={toggleDrawer(true)}>
@@ -40,6 +43,5 @@ export default function Page() {
         {DrawerList}
       </Drawer> 
     </>
-    
   );
 }
