@@ -1,20 +1,27 @@
-'use client'
 
-import React from 'react';
-import { Form } from '@formio/react';
+'use client'
+import React, { Suspense, useEffect } from 'react';
+import { Form, Formio } from '@formio/react';
 import { useFormik } from 'formik';
+import {  Container } from '@mui/material';
 import * as Yup from 'yup';
-import Link from 'next/link';
-import EnterRegistrationForm from '@/components/EnterRegistrationForm';
+import Loading from './loading';
 
 
 export default function Page() {
+    useEffect(() => {
+        Formio.createForm(document.getElementById('formio'), 'https://qvtoslceucaatao.form.io/enterregistrationformmanually');
+    }, []);
 
     
     return(
-        <EnterRegistrationForm/>
+        <Suspense fallback={<Loading/>}>
+            <EnterRegistrationForm/>
+        </Suspense>
+            
     );
     
 
 }
+
 
