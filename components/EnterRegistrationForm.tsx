@@ -1,11 +1,18 @@
+import React from "react";
+import { Container } from "@mui/material";
+import { Form } from '@formio/react';
 
-import { Formio } from "formiojs";
 
 export default function EnterRegistrationForm() {
-    const formio = new Formio('https://qvtoslceucaatao.form.io/enterregistrationformmanually');
+    const onSubmitHandler = (submission: any) =>  {
+        console.log(submission);
+    }
     return (
-        formio.loadForm().then((formio: Formio) => {
-            console.log(formio)
-        })
+        <>
+            <Container>
+                <Form src="https://qvtoslceucaatao.form.io/enterregistrationformmanually" onSubmit={onSubmitHandler} />
+            </Container>
+
+        </>
     );
 }
