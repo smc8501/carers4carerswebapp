@@ -16,13 +16,9 @@ export default function Page() {
     
     return(
         <Suspense fallback={<Loading/>}>
-            <Container maxWidth="md">
-                    <div id='formio'></div>
-            </Container>
-
+            <EnterRegistrationForm/>
         </Suspense>
             
-        
     );
     
 
