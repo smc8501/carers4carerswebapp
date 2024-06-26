@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import {  Container } from '@mui/material';
 import * as Yup from 'yup';
 import Loading from './loading';
+import EnterRegistrationForm from '@/components/EnterRegistrationForm';
 
 
 export default function Page() {
