@@ -1,5 +1,5 @@
-'use client'
 
+'use client'
 import { ThemeProvider } from "@emotion/react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { theme } from "../theme";

@@ -1,18 +1,20 @@
-import React from "react";
-import { Container } from "@mui/material";
-import { Form } from '@formio/react';
+import React, { useEffect, useRef } from 'react';
+import { Form  } from '@formio/react';
+import 'formiojs/dist/formio.full.css';
+import dynamic from 'next/dynamic';
 
-export default function EnterRegistrationForm() {
-    const onSubmitHandler = (submission: any) =>  {
-        console.log(submission);
-    }
+
+interface RegistrationFormProps {
+    formUrl: string;
+}
+
+const EnterRegistrationForm: React.FC<RegistrationFormProps> = ({ formUrl }) => {
+    const Form = dynamic(() => import ('@formio/react').then(module => module.Form), {ssr: false});
     return (
         <>
-            <Container>
-                <Form src="https://qvtoslceucaatao.form.io/enterregistrationformmanually" onSubmit={onSubmitHandler} />
-            </Container>
-
+            <Form src={formUrl}/>
         </>
-
     );
-}
+};
+
+export default EnterRegistrationForm;

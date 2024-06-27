@@ -10,14 +10,13 @@ import EnterRegistrationForm from '@/components/EnterRegistrationForm';
 
 
 export default function Page() {
-    useEffect(() => {
-        Formio.createForm(document.getElementById('formio'), 'https://qvtoslceucaatao.form.io/enterregistrationformmanually');
-    }, []);
+    
 
     
     return(
+        
         <Suspense fallback={<Loading/>}>
-            <EnterRegistrationForm/>
+            <EnterRegistrationForm formUrl='https://qvtoslceucaatao.form.io/enterregistrationformmanually'/>
         </Suspense>
             
     );
