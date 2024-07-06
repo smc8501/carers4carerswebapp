@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { Form  } from '@formio/react';
 import 'formiojs/dist/formio.full.css';
 import dynamic from 'next/dynamic';
 
 
-interface RegistrationFormProps {
+interface FormProps {
     formUrl: string;
 }
 
-const EnterRegistrationForm: React.FC<RegistrationFormProps> = ({ formUrl }) => {
+const LoadForm: React.FC<FormProps> = ({ formUrl }) => {
     const Form = dynamic(() => import ('@formio/react').then(module => module.Form), {ssr: false});
     return (
         <>
@@ -17,4 +16,4 @@ const EnterRegistrationForm: React.FC<RegistrationFormProps> = ({ formUrl }) => 
     );
 };
 
-export default EnterRegistrationForm;
+export default LoadForm;
