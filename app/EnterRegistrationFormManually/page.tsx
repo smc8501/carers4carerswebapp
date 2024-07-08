@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import {  Container } from '@mui/material';
 import * as Yup from 'yup';
 import Loading from './loading';
-import EnterRegistrationForm from '@/components/EnterRegistrationForm';
+import LoadForm from '@/components/LoadForm';
 
 
 export default function Page() {
@@ -16,7 +16,7 @@ export default function Page() {
     return(
         
         <Suspense fallback={<Loading/>}>
-            <EnterRegistrationForm formUrl='https://qvtoslceucaatao.form.io/enterregistrationformmanually'/>
+            <LoadForm formUrl='https://qvtoslceucaatao.form.io/enterregistrationformmanually'/>
         </Suspense>
             
     );
