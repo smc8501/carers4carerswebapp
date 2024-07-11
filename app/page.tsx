@@ -1,10 +1,8 @@
 'use client';
-import Image from "next/image";
-import styles from "./page.module.css";
+
 import { Box, Button, Container, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
-import EnterRegistrationForm from "@/components/EnterRegistrationForm";
 
 
 export default function Page() {
@@ -17,9 +15,9 @@ export default function Page() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {[
-          {text: 'Registration', path: '/EnterRegistrationFormManually'},
-          {text: 'Attendance', path: '/EnterAttendanceSheetManually'},
-          {text: 'Reports', path: ''}].map((item) => (
+          {text: 'Registration', path: '/RegistrationForm'},
+          {text: 'Attendance', path: '/AttendanceSheet'},
+          {text: 'Reports', path: '/create-new-report'}].map((item) => (
           <ListItem key={item.text} disablePadding>
             <Link href={item.path} passHref>
               <ListItemButton sx={{ textDecoration: 'none'}}>

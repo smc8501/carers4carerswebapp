@@ -9,8 +9,8 @@ export default function EnterRegistrationFormLayout({children}: {children: React
     return (
       <html lang="en">
         <head>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>
-            <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css"/>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"></link>
+            <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css"></link> 
             <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
         </head>
