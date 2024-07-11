@@ -26,7 +26,7 @@ export default async function formSubmissionHandler(
                     relationshipToCarer: EmergencyContactPanel.relationshipToCarer,
                     phoneNum: EmergencyContactPanel.phoneNumber,
                     address: EmergencyContactPanel.
-                }
+                    }
             });
             // Create new carer
             const newCarer = await prisma.carer.create({
