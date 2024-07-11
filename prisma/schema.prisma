@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model Activity {
+  id                 Int                  @id(map: "activity_pkey") @default(autoincrement())
+  funder_id          Int
+  activityName       String               @db.VarChar(255)
+  activityType       String               @db.VarChar(255)
+  activityLocation   String               @db.VarChar(255)
+  Funder             Funder               @relation(fields: [funder_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "funder_fkey")
+  Session_Attendance Session_Attendance[]
+}
+
+model Cared_for {
+  id                        Int    @id(map: "cared-for_pkey") @default(autoincrement())
+  carer_id                  Int
+  fullName                  String @db.VarChar(255)
+  ageGroup                  Int
+  relationshipToCarer       String @db.VarChar(255)
+  hasHealthCondition        String @db.VarChar(255)
+  DisabilityRegistrationNum Int
+  Carer                     Carer  @relation(fields: [carer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "carer_fkey")
+
+  @@map("Cared-for")
+}
+
+model Carer {
+  id                   Int                  @id(map: "carer_pkey") @default(autoincrement())
+  emergency_contact_id Int
+  title                String              @db.VarChar(4)
+  fullName             String              @db.VarChar(255)
+  dateOfBirth          DateTime            @db.Date
+  phoneNum             Int
+  email                String             @db.VarChar(255)
+  address         String              @db.VarChar(255)
+  postcode             String              @db.VarChar(255)
+  gender               String              @db.VarChar(255)
+  ethnicity            String              @db.VarChar(255)
+  faith                String              @db.VarChar(255)
+  sexualOrientation    String              @db.VarChar(255)
+  hasHealthCondition   String              @db.VarChar(3)
+  typeHealthCondition  String?              @db.VarChar(255)
+  hasDisability        String              @db.VarChar(3)
+  typeDisability       String?              @db.VarChar(255)
+  hasAllergies         String             @db.VarChar(3)
+  typeAllergies        String?              @db.VarChar(255)
+  nameSurgeryDoctor    String              @db.VarChar(255)
+  referredBy           String              @db.VarChar(255)
+  preferredContact     String              @db.VarChar(255)
+  dateJoined           DateTime?            @db.Date
+  recordAdded          DateTime?            @db.Timestamp(6)
+  Cared_for            Cared_for[]
+  Emergency_Contact    Emergency_Contact   @relation(fields: [emergency_contact_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "emergency_contact_fkey")
+  Session_Attendance   Session_Attendance[]
+}
+
+model Emergency_Contact {
+  id                  Int     @id(map: "emergency_contact_pkey") @default(autoincrement())
+  fullName            String @db.VarChar(255)
+  relationshipToCarer String @db.VarChar(255)
+  address       String @db.VarChar(255)
+  phoneNum            Int
+  Carer               Carer[]
+
+  @@map("Emergency Contact")
+}
+
+model Funder {
+  id         Int        @id(map: "funder_pkey")
+  funderName String?    @db.VarChar(255)
+  Activity   Activity[]
+}
+
+model Session_Attendance {
+  id           Int      @id(map: "SessionAttendace_pkey") @default(autoincrement())
+  activity_id  Int
+  carer_id     Int
+  sessionDate  DateTime @db.Date
+  notes        String?  @db.VarChar(255)
+  Activity     Activity @relation(fields: [activity_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "activity_fkey")
+  Carer        Carer    @relation(fields: [carer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "carer_fkey")
+
+  @@map("Session Attendance")
+}
