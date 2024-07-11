@@ -3,20 +3,17 @@
 import React, { Suspense, useState } from 'react';
 import Loading from './loading';
 import LoadForm from '@/components/LoadForm';
-import axios from 'axios';
 import { Alert, Button, Container, Snackbar } from '@mui/material';
-import formSubmissionHandler from '../api/registrationFormSubmission/route';
 
  
 export default function Page() {
     const [openSuccess, setOpenSuccess] = useState(false);
     const [openError, setOpenError] = useState(false);
    
-    const handleSubmit = async (event: React.FormEvent, submission: any) => {
-        event.preventDefault();
+    const handleSubmit = async ( submission: any) => {
 
         try {
-            const response = await fetch('/api/registrationFormSubmission', {
+            const response = await fetch('app/api/registrationFormSubmission', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,7 +39,7 @@ export default function Page() {
     return(
         <Container>
             <Suspense fallback={<Loading/>}>
-                <LoadForm formUrl='https://isdpgoqoblbbykg.form.io/registrationform' />
+                <LoadForm formUrl='https://isdpgoqoblbbykg.form.io/registrationform' onSubmit={handleSubmit}/>
                 <Snackbar open={openSuccess} autoHideDuration={6000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success" sx={{width: '100%'}}>
                         Registration submitter successfully!

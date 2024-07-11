@@ -5,12 +5,12 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
-export default async function formSubmissionHandler(
+export default async function registrationFormSubmission(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Origin', 'carers4carerswebapp.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://carers4carerswebapp.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
     res.setHeader(
         'Access-Control-Allow-Headers',
