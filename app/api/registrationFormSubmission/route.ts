@@ -25,7 +25,6 @@ export default async function formSubmissionHandler(
                     fullName: EmergencyContactPanel.fullName,
                     relationshipToCarer: EmergencyContactPanel.relationshipToCarer,
                     phoneNum: EmergencyContactPanel.phoneNumber,
-                    address: EmergencyContactPanel.
                     }
             });
             // Create new carer
